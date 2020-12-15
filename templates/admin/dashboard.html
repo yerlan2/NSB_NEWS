@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard | Admin NSB{% endblock title %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/dashboard.css') }}">
+    <h2>&#10007; Dashboard</h2>
+    <div class="dashboard-cards">
+        <div class="dashboard-card" style="background:linear-gradient(#ff9494, #ff949477);">
+            <p class="head">Categories</p>
+            <div class="number">
+                {{ categories|length }}
+            </div>
+        </div>
+        <div class="dashboard-card" style="background:linear-gradient(#48d1cc, #48d1cc77);">
+            <p class="head">Sources</p>
+            <div class="number">
+                {{ sources|length }}
+            </div>
+        </div>
+        <div class="dashboard-card" style="background:linear-gradient(#00bfff, #00bfff77);">
+            <p class="head">Articles</p>
+            <div class="number">
+                {{ articles|length }}
+            </div>
+        </div>
+        <div class="dashboard-card" style="background:linear-gradient(#4682b4, #4682b477);">
+            <p class="head">Users</p>
+            <div class="number">
+                {{ users|length }}
+            </div>
+        </div>
+    </div>
+    <div class="numbers">
+        <table class="categories_name__articles_number">
+            <tr class="category_name__article_number">
+                <th class="category_name" style="text-align:center;">&#10070; Categories name &#10070;</td>
+                <th class="article_number" colspan="2" style="text-align:center;">&#10070; Articles &#10070;</td>
+            </tr>
+            <tr class="category_name__article_number">
+                <th class="category_name" style="text-align:center;">&#183; &#183; &#183;</td>
+                <th class="article_number">Number</td>
+                <th class="article_percent">Percent (%)</td>
+            </tr>
+            {% for category_name__article_number in categories_name__articles_number %}
+                <tr class="category_name__article_number">
+                    <td class="category_name">
+                        {{ category_name__article_number.name.capitalize() }}
+                    </td>
+                    <td class="article_number">
+                        {{ category_name__article_number.number }}
+                    </td>
+                    <td class="article_percent">
+                        {{ '%3.2f' | format(category_name__article_number.number/(articles|length)*100) }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock main %}
+

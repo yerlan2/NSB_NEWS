@@ -1,0 +1,34 @@
+{% extends "main/base.html" %}
+
+{% block title %}Register | NSB{% endblock title %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/authorization.css') }}">
+    <form method="post">
+        <table class="authorization-table">
+            <tr><td colspan="2"><h2 style="text-align:center; margin-bottom:8px;">Registration</h2></td></tr>
+            <tr>
+                <label><td>Email</td><td><input type="email" name="email" size="32" required></td></label>
+            </tr>
+            <tr>
+                <label><td>Password</td><td><input type="password" name="password" size="32" required></td></label>
+            </tr>
+            <tr>
+                <label><td>First name</td><td><input type="text" name="first_name" size="32" required></td></label>
+            </tr>
+            <tr>
+                <label><td>Last name</td><td><input type="text" name="last_name" size="32"></td></label>
+            </tr>
+            <tr><td colspan="2"><button class="authorization-button">Register</button></td></tr>
+        </table>
+    </form>
+    <div class="errors">
+        {% for error in errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+    <div class="additional__info">
+        If you have an account, <a href="/login">Authorization</a>
+    </div>
+{% endblock main %}
+

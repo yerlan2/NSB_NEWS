@@ -1,0 +1,90 @@
+h2 {
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+main.page form {
+    margin-top: 10px;
+}
+table.authorization-table {
+    width: 90%;
+}
+
+
+table.authorization-table input,
+table.authorization-table textarea {
+    margin: 4px 0 4px 8px;
+    padding: 6px;
+    border: 1px solid #949494;
+    border-radius: 6px;
+    width: 100%;
+}
+
+
+.select__category {
+    display: flex;
+    align-items: center;
+    margin: 4px 0 4px 8px;
+}
+.select__category select,
+.select__category button {
+    border: 1px solid #949494;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+}
+.select__category select {
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    background: transparent;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    font-size: 15px;
+    padding: 8px;
+}
+.select__category button {
+    background: #f3f3f3;
+    padding: 9px 8px;
+    margin-left: 6px;
+    white-space: nowrap;
+}
+
+
+button.authorization-button {
+    display: block;
+    background: #1e90ffcc;
+    border: none;
+    border-radius: 200px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 22px;
+    margin: 8px auto 0;
+    transition: .2s;
+}
+button.authorization-button:hover {
+    background: #1e90ff;
+}
+
+.errors {
+    color: #f00;
+    font-style: italic;
+    margin: 10px 15px;
+}
+
+main.page > div > a {
+    color: #333;
+    font-size: 18px;
+    display: block;
+    text-decoration: none;
+    margin: 20px 10px 4px;
+}
+
+
+.field_name {
+    width: 15%;
+}
+

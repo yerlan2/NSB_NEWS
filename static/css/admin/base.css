@@ -1,0 +1,14 @@
+body > main.main {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 10px 0;
+}
+
+
+input, textarea, button, a {
+    outline: none;
+}
+input, button {
+    font-size: 14px;
+}
+

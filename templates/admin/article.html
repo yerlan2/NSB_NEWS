@@ -1,0 +1,74 @@
+{% extends "admin/base.html" %}
+
+{% block title %}New article | Admin NSB{% endblock title %}
+
+{% block main %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/article.css') }}">
+    <h2>&#10007; Articles</h2>
+    <form method="post">
+        <table class="authorization-table">
+            <!-- <tr><td colspan="2"><h2 style="text-align:center; margin-bottom:8px;">Create article</h2></td></tr> -->
+            <tr>
+                <td class="field_name">Source name</td><td class="field_input"><input type="text" name="source" required></td>
+            </tr>
+            <tr>
+                <td class="field_name">Author</td><td class="field_input"><input type="text" name="author"></td>
+            </tr>
+            <tr>
+                <td class="field_name">Title</td><td class="field_input"><input type="text" id="title" name="title" required></td>
+            </tr>
+            <tr>
+                <td class="field_name">Description</td><td class="field_input"><textarea id="description" name="description" rows="3"></textarea></td>
+            </tr>
+            <tr>
+                <td class="field_name">URL</td><td class="field_input"><textarea name="url" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td class="field_name">URL to image</td><td class="field_input"><textarea name="urlToImage" rows="2"></textarea></td>
+            </tr>
+            <tr>
+                <td class="field_name">Content</td><td class="field_input"><textarea id="content" name="content" rows="4"></textarea></td>
+            </tr>
+            <tr>
+                <td class="field_name">Category</td>
+                <td class="select__category field_input">
+                    <select id="category-select" name="category" required>
+                        <option value="">Please select</option>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name.capitalize() }}</option>
+                        {% endfor %}
+                    </select>
+                    <label><button id="category-button" onclick="predict_category(event)">Predict category</button></label>
+                </td>
+            </tr>
+            <tr><td colspan="2"><button class="authorization-button">Create</button></td></tr>
+        </table>
+    </form>
+    <div class="errors">
+        {% for error in errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function predict_category(event) {
+            event.preventDefault();
+            const select = document.getElementById('category-select'),
+                  content = document.getElementById('title').value +" "+ document.getElementById('description').value +" "+ document.getElementById('content').value;
+
+            fetch('/predict', {
+                method: "POST",
+                body: JSON.stringify({
+                    // 'category': select.options[select.selectedIndex].text, 
+                    'content' : content
+                }),
+                headers: {"Content-type": "application/json; charset=UTF-8"}
+            })
+            .then(response => response.json()) 
+            .then(json => {
+                select.value = json.category;
+            })
+            .catch(err => console.log(err));
+    }
+    </script>
+{% endblock main %}

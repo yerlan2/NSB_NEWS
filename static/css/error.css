@@ -1,0 +1,12 @@
+.errorHeader {
+    color: #e00;
+    font-family: serif;
+    font-size: 40px;
+    margin-top: 50px;
+}
+p.error {
+    color: #000;
+    font-family: serif;
+    font-size: 32px;
+}
+

@@ -1,0 +1,61 @@
+h2 {
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+
+.dashboard-cards {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.dashboard-cards .dashboard-card {
+    color: #fff;
+    padding: 20px;
+}
+.dashboard-cards .dashboard-card .head {
+    font-size: 20px;
+    font-weight: bold;
+}
+.dashboard-cards .dashboard-card .number {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+
+.numbers {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 55% 1fr;
+}
+
+.categories_name__articles_number {
+    background: #f0f8ff;
+    color: #333;
+    padding: 20px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+th.category_name, 
+th.article_number, 
+th.article_percent {
+    font-size: 20px;
+}
+td.category_name, 
+td.article_number,
+td.article_percent {
+    font-size: 20px;
+}
+.category_name, 
+.article_number,
+.article_percent {
+    padding: 2px 0;
+}
+.category_name {
+    text-align: left;
+}
+.article_number,
+.article_percent {
+    text-align: right;
+}

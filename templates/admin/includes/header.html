@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin/includes/header.css') }}">
+<header>
+    <div class="container">
+
+        <div class="header__inner">
+            <a class="logo" href="/"><span>NSB</span> NEWS</a>
+            <div></div>
+            <!--
+            <form method="get" action="/search" class="search">
+                <button>
+                    <div>
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 512.005 512.005" style="enable-background:new 0 0 512.005 512.005;" xml:space="preserve" fill="#fff">
+                        <g>
+                            <g>
+                                <path d="M505.749,475.587l-145.6-145.6c28.203-34.837,45.184-79.104,45.184-127.317c0-111.744-90.923-202.667-202.667-202.667
+                                    S0,90.925,0,202.669s90.923,202.667,202.667,202.667c48.213,0,92.48-16.981,127.317-45.184l145.6,145.6
+                                    c4.16,4.16,9.621,6.251,15.083,6.251s10.923-2.091,15.083-6.251C514.091,497.411,514.091,483.928,505.749,475.587z
+                                        M202.667,362.669c-88.235,0-160-71.765-160-160s71.765-160,160-160s160,71.765,160,160S290.901,362.669,202.667,362.669z"/>
+                            </g>
+                        </g>
+                        <g></g><g></g><g></g><g></g>
+                        <g></g><g></g><g></g><g></g>
+                        <g></g><g></g><g></g><g></g>
+                        <g></g><g></g><g></g>
+                    </svg>
+                    </div>
+                </button>
+                <input name="q" type="search" placeholder="Search..." required>
+            </form> -->
+            <div style="text-align: right;">
+                {% if 'admin_email' in session %}
+                    {#
+                        {% if session['admin_email']=='admin@email.com' %}
+                            <a href="/admin" class="header-option">Admin</a> /
+                        {% else %}    
+                            <a href="#" class="header-option">#</a>
+                        {% endif %}
+                    #}
+                    <a href="/admin/logout" class="header-option">Logout</a>
+                    {% else %}
+                        <a href="/login" class="header-option">Login</a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</header>
+<div class="header"></div>
+<script>
+    let header = document.querySelector('header'),
+        divHeader = document.querySelector('.header');
+    divHeader.style.height = (header.offsetHeight) +"px";
+</script>

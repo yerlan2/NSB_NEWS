@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %}{% endblock title %}
+
+{% block body %}
+    {% include "main/includes/header.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main/base.css') }}">
+    <main class="main container">
+        {% include "main/includes/aside.html" %}
+        <main class="page">
+            {% block main %}
+
+            {% endblock main %}
+        </main>
+    </main>
+    {% include "main/includes/footer.html" %}
+{% endblock body %}
